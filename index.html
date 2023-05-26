@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion Using HTML, CSS, and Javascript</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Courier New', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      background: #2460A7FF;
+    }
+
+    .container {
+      width: 700px;
+    }
+
+    .container .accordion {
+      position: relative;
+      margin: 10px 20px;
+    }
+
+    .container .accordion .label{
+      position: relative;
+      padding: 10px;
+      background: #85B3D1FF;
+      cursor: pointer;
+    }
+
+    .container .accordion .label::before {
+      content: '+';
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      font-size: 1.5em;
+    }
+
+    .container .accordion.active .label::before {
+      content: '-';
+    }
+
+    .container .accordion .accordion_content {
+      position: relative;
+      background: white;
+      height: 0;
+      overflow: hidden;
+      transition: 0.7s;
+      overflow-y: auto;
+    }
+
+    .container .accordion.active .accordion_content {
+      height: 150px;
+      padding: 10px;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <h1>Accordions w/ Collapsible content</h1>
+
+  <div class="container">
+    <div class="accordion">
+      <div class="label">INFORMATION MANAGEMENT</div>
+      <div class="accordion_content">
+        <p>
+          o Information management is an emerging field that is concerned with: The infrastructure
+          used to collect, manage, preserve, store and deliver information.
+        </p>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="label">NETWORKING 1</div>
+      <div class="accordion_content">
+        <p>
+          o Computer networking refers to interconnected computing devices that can exchange
+          data and share resources with each other. These networked devices use a system of rules,
+          called communications protocols, to transmit information over physical or wireless
+          technologies.
+        </p>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="label">WEB SYSTEMS AND TECHNOLOGIES</div>
+      <div class="accordion_content">
+        <p>
+          o Web information system, or web-based information system, is an information system that
+          uses Internet web technologies to deliver information and services, to users or other
+          information systems/applications.
+        </p>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="label ">SYSTEMS INTEGRATION AND ARCHITECTURE 1</div>
+      <div class="accordion_content">
+        <p>
+          o The Systems Integration Architecture provides a bridge between the heterogeneous
+          operational applications and platforms. This architecture ties together the mix of
+          platforms, operating systems, transports, and applications.
+        </p>
+      </div>
+    </div>
+  </div>
+  <script>
+
+    const accordion = document.getElementsByClassName('accordion');
+
+    for (i = 0; i < accordion.length; i++){
+      accordion[i].addEventListener('click', function(){
+        this.classList.toggle('active')
+      })
+    }
+
+  </script>
+
+</body>
+</html>
